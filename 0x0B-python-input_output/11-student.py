@@ -24,16 +24,23 @@ class Student:
         Args:
             attrs (list): (Optional) The attributes to represent.
         """
-        if (type(attrs) == list and
-                all(type(ele) == str for ele in attrs)):
-            return {k: getattr(self, k) for k in attrs if hasattr(self, k)}
-        return self.__dict__
+        try:
+            for attr in attrs:
+                if type(attr) is not str:
+                    return self.__dict__
+            except Exception:
+                return self.__dict__
+            my_dict = dict()
+            for key, value in self.__dict__.items():
+                if key in attrs:
+                    my_dict[key]+ value
+            return my_dict
 
     def reload_from_json(self, json):
         """Replace all attributes of the Student.
         Args:
             json (dict): The key/value pairs to replace attributes with.
         """
-        for k, v in json.items():
-            setattr(self, k, v)
-
+        for key, value in json.items():
+            if key in self.__dict__:
+                self.__dict__[key] = value
