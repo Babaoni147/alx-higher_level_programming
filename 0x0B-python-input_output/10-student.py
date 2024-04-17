@@ -24,14 +24,11 @@ class Student:
         Args:
             attrs (list): (Optional) The attributes to represent.
         """
-        try:
-            for attr in attrs:
-                if type(attr) is not str:
-                    return self.__dict__
-            except Exception:
-                return self.__dict__
-            my_dict = dict()
-            for key, value in self.__dict__.items():
-                if key in attrs:
-                    my_dic[key] = value
-            return my_dict
+        if attrs is None:
+            return self.__dict__
+        dic = {}
+        for key, value in self.__dict__.items():
+            for i in attrs:
+                if key == i:
+                    dic[key] = value
+        return dic
