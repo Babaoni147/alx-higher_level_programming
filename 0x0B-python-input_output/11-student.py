@@ -19,9 +19,8 @@ class Student:
 
         if attrs is None:
             return self.__dict__
-        dic = {}
+        new_dictionary = {}
         for key, value in self.__dict__.items():
-            for i in attrs:
-                if key == i:
-                    dic[key] = value
-        return dic
+            if key in attrs:
+                new_dictionary[key] = value
+        return new_dictionary
