@@ -14,7 +14,7 @@ try:
     list1 = list(load_from_json_file("add_item.json"))
 
 except:
-    len(list1) == 0
+    len(list1) is 0
 
 for arg in range(1, len(argv)):
     list1.append(argv[arg])
