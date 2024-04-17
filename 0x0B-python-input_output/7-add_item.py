@@ -1,20 +1,21 @@
 #!/usr/bin/python3
 
 """Add all arguments to a Python list and save them to a file."""
+import json
+import os.path
+import sys
 from sys import argv
+
 save_to_json_file = __import__('7-save_to_json_file').save_to_json_file
 load_from_json_file = __import__('8-load_from_json_file').load_from_json_file
 
+filename = "add_item.json"
+json_list = []
 
-list1 = []
+if os.path.exists(filename):
+    json_list = load_from_json_file(filename)
 
-try:
-    list1 = list(load_from_json_file("add_item.json"))
+for index in argv[1:]:
+    json_list.append(index)
 
-except:
-    len(list1) == 0
-
-for arg in range(1, len(argv)):
-    list1.append(argv[arg])
-
-save_to_json_file(list1, "add_item.json")
+save_to_json_file(json_list, filename)
