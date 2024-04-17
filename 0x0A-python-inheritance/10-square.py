@@ -3,18 +3,14 @@
 Rectangle = __import__('9-rectangle').Rectangle
 
 
-
 class Square(Rectangle):
-    """Square class that inherits from Rectangle that inherits BaseGeometry"""
-
+    """A subclass representing a rectangle."""
     def __init__(self, size):
-        """Method for initialized the attrubutes"""
-
-        super().__init__(size, size)
+        """Constructor."""
         self.integer_validator("size", size)
         self.__size = size
+        super().__init__(size, size)
 
     def area(self):
-        """rectangle area"""
-
+        """Method for area of square."""
         return self.__size ** 2
