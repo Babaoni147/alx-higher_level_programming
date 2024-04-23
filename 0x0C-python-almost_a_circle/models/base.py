@@ -2,7 +2,7 @@
 """Define a base model"""
 
 from os import path
-import jsoni
+import json
 import csv
 import turtle
 
