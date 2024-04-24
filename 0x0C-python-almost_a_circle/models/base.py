@@ -4,7 +4,6 @@
 import json
 from os import path
 import turtle
-import csv
 
 
 class Base:
