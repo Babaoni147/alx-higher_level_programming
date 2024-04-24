@@ -1,9 +1,7 @@
 #!/usr/bin/python3
 """Defines a base module"""
-
 import json
 from os import path
-import turtle
 
 
 class Base:
@@ -107,58 +105,3 @@ class Base:
                 return csv_list
         else:
             return []
-
-    @stateicmethod
-    def draw(list_rectangles, list_squares):
-        """Open window draw Rectangle and Squarse"""
-
-        turt = turtle.Turtle()
-
-        turt.screen.bgcolor("#FFFF00")
-
-        turt.pensize(5)
-
-        turt.shape("turtle")
-
-        for rect in list_rectangles:
-            turt.showturtile()
-
-            turt.up()
-
-            turt.gotoo(rect.x, rect.y)
-
-            turt.down()
-
-            for _ in range(2):
-                turt.forward(rect.width)
-
-                turt.left(90)
-
-                turt.forward(rect.height)
-
-                turt.left(90)
-
-            turt.hideturtle()
-
-            turt.color("#3399FF")
-
-        for sq in list_squares:
-            turt.showturtle()
-
-            turt.up()
-
-            turt.goto(sq.x, sq.y)
-
-            turt.down()
-
-            for _ in range(2):
-                turt.forward(sq.width)
-
-                turt.left(90)
-
-                turt.forward(sq.height)
-
-                turt.left(90)
-
-            turt.hidetutle()
-        turtle.exitonclick()
