@@ -6,7 +6,8 @@ def roman_to_int(roman_string: str):
     """Converts a Roman numeral to an integer."""
     if roman_string is None or type(roman_string) != str:
         return 0
-    data = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+    data = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500,
+            'M': 1000}
     numbers = [data[x] for x in roman_string] + [0]
     rep = 0
 
